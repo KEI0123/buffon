@@ -92,7 +92,7 @@ function simulate() {
     }
 
     const piEstimate = LOOP / hits;
-    piValueElem.innerText = `π : ${piEstimate.toFixed(10)}`;
+    piValueElem.innerText = `π : ${piEstimate.toFixed(15)}`;
 }
 
 // 初回読み込み時にシミュレーションを実行する
