@@ -80,6 +80,11 @@ function simulate() {
         drawNeedle(midX, midY, endX, endY, collides);
     }
 
+    if (hits === 0) {
+        piValueElem.innerText = `No hits detected, unable to calculate π.`;
+        return;
+    }
+
     // 多倍長浮動小数点数で計算
     const Decimal = window.Decimal;
     const lengthDecimal = new Decimal(length);
