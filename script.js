@@ -5,8 +5,11 @@ const loopValue = document.getElementById('loopValue');
 const runButton = document.getElementById('runButton');
 const piValueElem = document.getElementById('pi-value');
 
-canvas.width = 1600;  // 解像度を高くするための実サイズ
-canvas.height = 1600; // 解像度を高くするための実サイズ
+// 解像度の向上
+canvas.width = 1600;  // 実際の描画解像度
+canvas.height = 1600; // 実際の描画解像度
+canvas.style.width = '800px';  // 表示サイズ
+canvas.style.height = '800px'; // 表示サイズ
 
 const NUM_LINES = 12;
 const LINE_SPACING = 120; // スケールを保つために倍率も同時に調整
@@ -81,4 +84,5 @@ function simulate() {
     piValueElem.innerText = `Estimated π value: ${piEstimate.toFixed(10)}`;
 }
 
+// 初回読み込み時にシミュレーションを実行する
 simulate();
