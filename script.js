@@ -80,7 +80,14 @@ function simulate() {
         drawNeedle(midX, midY, endX, endY, collides);
     }
 
-    const piEstimate = (2 * length * LOOP) / (hits * LINE_SPACING);
+    // 多倍長浮動小数点数で計算
+    const Decimal = window.Decimal;
+    const lengthDecimal = new Decimal(length);
+    const loopDecimal = new Decimal(LOOP);
+    const hitsDecimal = new Decimal(hits);
+    const lineSpacingDecimal = new Decimal(LINE_SPACING);
+
+    const piEstimate = lengthDecimal.times(2).times(loopDecimal).dividedBy(hitsDecimal.times(lineSpacingDecimal));
     piValueElem.innerText = `Estimated π value: ${piEstimate.toFixed(10)}`;
 }
 
