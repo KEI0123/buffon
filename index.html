@@ -10,11 +10,11 @@
 
 <body>
     <h1>Buffon's Needle Simulation</h1>
-    <div>
-        <label for="loopRange">Number of Loops: </label>
-        <input type="range" id="loopRange" min="1" max="100000" value="1000">
+    <div class="controls">
+        <label for="loopRange">Number of needles: </label>
+        <input type="range" id="loopRange" min="1" max="50000" value="1000">
         <span id="loopValue">1000</span>
-        <button id="runButton">Run Simulation</button>
+        <button id="runButton">Run</button>
     </div>
     <p id="pi-value">Estimated π value will appear here</p>
     <canvas id="canvas"></canvas>

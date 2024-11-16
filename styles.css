@@ -25,14 +25,22 @@ label {
     font-size: 18px;
 }
 
-input[type="range"] {
-    width: 300px;
+input {
+    width: 450px;
 }
 
 button {
     margin-left: 10px;
     padding: 5px 10px;
     font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(255, 187, 0);
+}
+
+button:hover {
+    background-color: rgb(255, 205, 66);
 }
 
 #pi-value {
