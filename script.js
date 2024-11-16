@@ -52,11 +52,11 @@ function getRandom(min, max) {
 
 // シミュレーション実行
 function simulate() {
-    const LOOP = parseInt(loopRange.value);
+    const LOOP = new Decimal(loopRange.value);  // Decimalでループ数を扱う
     drawLines();
-    let hits = 0;
+    let hits = new Decimal(0);  // Decimalでヒット数を扱う
 
-    for (let i = 0; i < LOOP; i++) {
+    for (let i = 0; i < LOOP.toNumber(); i++) {  // ループ数をDecimalからNumberに変換
         const midX = getRandom(LINE_SPACING, canvas.width - LINE_SPACING);
         const midY = getRandom(LINE_SPACING, canvas.height - LINE_SPACING);
         const angle = getRandom(0, 2 * Math.PI);
@@ -72,7 +72,7 @@ function simulate() {
             const lineY = j * LINE_SPACING + LINE_SPACING;
             if (minY <= lineY && maxY >= lineY) {
                 collides = true;
-                hits++;
+                hits = hits.plus(1);  // Decimalでヒット数を増加
                 break;
             }
         }
@@ -80,19 +80,15 @@ function simulate() {
         drawNeedle(midX, midY, endX, endY, collides);
     }
 
-    if (hits === 0) {
+    if (hits.isZero()) {  // Decimalでヒット数が0かチェック
         piValueElem.innerText = `No hits detected, unable to calculate π.`;
         return;
     }
 
     // 多倍長浮動小数点数で計算
-    const Decimal = window.Decimal;
-    const lengthDecimal = new Decimal(length);
-    const loopDecimal = new Decimal(LOOP);
-    const hitsDecimal = new Decimal(hits);
+    const lengthDecimal = new Decimal(LINE_SPACING / 2);
     const lineSpacingDecimal = new Decimal(LINE_SPACING);
-
-    const piEstimate = lengthDecimal.times(2).times(loopDecimal).dividedBy(hitsDecimal.times(lineSpacingDecimal));
+    const piEstimate = hits.dividedBy(LOOP);
     piValueElem.innerText = `Estimated π value: ${piEstimate.toFixed(10)}`;
 }
 
