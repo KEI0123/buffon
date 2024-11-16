@@ -12,3 +12,15 @@ canvas {
     display: block;
     margin: 20px auto;
 }
+
+div {
+    margin: 20px;
+}
+
+label {
+    font-size: 18px;
+}
+
+input[type="range"] {
+    width: 300px;
+}

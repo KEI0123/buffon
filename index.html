@@ -10,6 +10,11 @@
 
 <body>
     <h1>Buffon's Needle Simulation</h1>
+    <div>
+        <label for="loopRange">Number of Loops: </label>
+        <input type="range" id="loopRange" min="1" max="10000" value="1000">
+        <span id="loopValue">1000</span>
+    </div>
     <canvas id="canvas" width="800" height="800"></canvas>
     <p id="pi-value"></p>
     <script src="script.js"></script>

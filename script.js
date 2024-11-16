@@ -1,14 +1,21 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
+const loopRange = document.getElementById('loopRange');
+const loopValue = document.getElementById('loopValue');
 
 const NUM_LINES = 12;
 const LINE_SPACING = 60;
-const LOOP = 1000;
 const MAG = LINE_SPACING / 2;
 let count = 0;
 
+loopRange.addEventListener('input', function () {
+    loopValue.textContent = loopRange.value;
+    simulate();
+});
+
 // ラインを描画
 function drawLines() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.strokeStyle = 'black';
     for (let i = 0; i <= NUM_LINES; i++) {
         const y = i * LINE_SPACING + LINE_SPACING;
@@ -35,6 +42,7 @@ function getRandom(min, max) {
 
 // シミュレーション実行
 function simulate() {
+    const LOOP = parseInt(loopRange.value);
     drawLines();
     let hits = 0;
 
