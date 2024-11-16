@@ -24,3 +24,9 @@ label {
 input[type="range"] {
     width: 300px;
 }
+
+button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    font-size: 16px;
+}

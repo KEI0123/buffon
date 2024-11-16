@@ -2,14 +2,17 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const loopRange = document.getElementById('loopRange');
 const loopValue = document.getElementById('loopValue');
+const runButton = document.getElementById('runButton');
 
 const NUM_LINES = 12;
 const LINE_SPACING = 60;
 const MAG = LINE_SPACING / 2;
-let count = 0;
 
 loopRange.addEventListener('input', function () {
     loopValue.textContent = loopRange.value;
+});
+
+runButton.addEventListener('click', function () {
     simulate();
 });
 
