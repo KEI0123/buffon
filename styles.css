@@ -11,6 +11,10 @@ canvas {
     border: 1px solid #000000;
     display: block;
     margin: 20px auto;
+    width: 800px;
+    /* 表示サイズ */
+    height: 800px;
+    /* 表示サイズ */
 }
 
 div {
