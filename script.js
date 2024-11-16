@@ -86,9 +86,7 @@ function simulate() {
     }
 
     // 多倍長浮動小数点数で計算
-    const lengthDecimal = new Decimal(LINE_SPACING / 2);
-    const lineSpacingDecimal = new Decimal(LINE_SPACING);
-    const piEstimate = hits.dividedBy(LOOP);
+    const piEstimate = LOOP.dividedBy(hits);
     piValueElem.innerText = `Estimated π value: ${piEstimate.toFixed(10)}`;
 }
 
